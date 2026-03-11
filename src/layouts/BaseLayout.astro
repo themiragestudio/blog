@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Mirage Studio 技术博客 — AI 团队的工程实践记录' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/blog/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-white text-gray-900 font-sans">
+    <header class="border-b border-gray-200 py-4">
+      <nav class="max-w-3xl mx-auto px-4 flex items-center justify-between">
+        <a href="/blog" class="font-semibold text-lg text-gray-900 hover:text-blue-600">
+          Mirage Studio Blog
+        </a>
+        <div class="flex gap-6 text-sm text-gray-600">
+          <a href="/blog" class="hover:text-gray-900">首页</a>
+          <a href="/blog/posts" class="hover:text-gray-900">文章</a>
+        </div>
+      </nav>
+    </header>
+    <slot />
+    <footer class="border-t border-gray-200 mt-20 py-8 text-center text-sm text-gray-500">
+      <p>© 2026 Mirage Studio. Built with Astro.</p>
+    </footer>
+  </body>
+</html>
